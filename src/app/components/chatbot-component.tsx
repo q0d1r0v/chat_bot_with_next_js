@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { IoIosCloseCircleOutline } from "react-icons/io";
+import { FaArrowUp } from "react-icons/fa";
 import "~/app/styles/chat-bot.css";
 
 export default function ChatBot() {
@@ -8,7 +9,12 @@ export default function ChatBot() {
   const [offset, setOffset] = useState<number>(0);
   const [dragging, setDragging] = useState<boolean>(false);
   const [startX, setStartX] = useState<number>(0);
+  const [inputValue, setInputValue] = useState<string>("");
+  const isDisabled = !inputValue.trim();
 
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInputValue(e.target.value);
+  };
   const toggleVisibility = () => {
     changeVisible(!is_open);
   };
@@ -30,6 +36,9 @@ export default function ChatBot() {
 
   const handleMouseUp = () => {
     setDragging(false);
+  };
+  const clicked = () => {
+    alert("cascs");
   };
 
   useEffect(() => {
@@ -56,13 +65,41 @@ export default function ChatBot() {
         >
           <div className="menu">
             <div className="close">
-              <IoIosCloseCircleOutline onClick={toggleVisibility} className="icon"/>
+              <IoIosCloseCircleOutline
+                onClick={toggleVisibility}
+                className="icon"
+              />
             </div>
             <div>
               <div className="header" onMouseDown={handleMouseDown}>
                 Xabaringizni bu yerga yozing!
               </div>
-              <div className="menu_body">Menu</div>
+              <div className="menu_body">
+                <div className="chats">Chat</div>
+                <div className="form_data">
+                  <div className="line"></div>
+                  <div className="chat_bar">
+                    <div style={{width: '100%'}}>
+                      <input
+                        value={inputValue}
+                        onChange={handleChange}
+                        type="text"
+                        placeholder="Xabarni kiriting!"
+                        className="input_data"
+                      />
+                    </div>
+                    <div>
+                      <button
+                        className={`${isDisabled ? "disabled_submit_btn" : "submit_btn"}`}
+                        disabled={!inputValue.trim()}
+                        onClick={clicked}
+                      >
+                        <FaArrowUp />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
