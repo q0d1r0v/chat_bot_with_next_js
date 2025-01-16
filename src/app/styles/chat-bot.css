@@ -1,4 +1,3 @@
-/* Default styles for larger screens */
 .parent {
   box-shadow: 2px 10px 15px -15px black;
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -86,7 +85,7 @@
   padding: 10px;
 }
 .input_data:focus {
-  outline: none; /* Outlineni olib tashlash */
+  outline: none;
 }
 .line {
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -176,41 +175,32 @@
 .waiting-message {
   margin: 10px;
 }
-
-/* Scrollni yashirish, lekin ishlashini ta'minlash */
 .menu_body {
   height: 500px;
-  overflow-y: scroll; /* scroll ishlashini ta'minlaymiz */
+  overflow-y: scroll;
   position: relative;
-  padding-right: 10px; /* Scroll uchun joy qoldirish */
+  padding-right: 10px;
 }
-
 .menu_body::-webkit-scrollbar {
-  width: 0px; /* Scrollning kengligini nolga o'rnatamiz */
-  background: transparent; /* Scroll trayning fonini shaffof qilamiz */
+  width: 0px;
+  background: transparent;
 }
-
 .menu_body::-webkit-scrollbar-thumb {
-  background-color: transparent; /* Scrollning tutqichini shaffof qilamiz */
-  border-radius: 10px; /* Radiusni qo'shish */
+  background-color: transparent;
+  border-radius: 10px;
 }
-
 .menu_body::-webkit-scrollbar-track {
-  background: transparent; /* Scroll tray uchun fonni shaffof qilamiz */
-  border-radius: 10px; /* Radiusni qo'shish */
+  background: transparent;
+  border-radius: 10px;
 }
-
-/* Qo'shimcha scroll elementlari uchun yashirish */
 .chats::-webkit-scrollbar {
   width: 0px;
   background: transparent;
 }
-
 .chats::-webkit-scrollbar-thumb {
   background-color: transparent;
   border-radius: 10px;
 }
-
 .chats::-webkit-scrollbar-track {
   background: transparent;
   border-radius: 10px;
@@ -221,11 +211,10 @@
   justify-content: space-between;
   gap: 10px;
 }
-
 @media (max-width: 768px) {
   .parent {
     width: 300px;
-    margin-left: 20px;
+    right: 20px;
   }
 
   .footer {
@@ -243,8 +232,7 @@
 
 @media (max-width: 480px) {
   .parent {
-    margin-left: 20px;
-    right: 10px;
+    right: 20px;
   }
 
   .header {
@@ -262,5 +250,48 @@
 
   .menu_body {
     min-height: 300px;
+  }
+}
+
+.footer {
+  background: #00bb31;
+  padding: 10px;
+  min-width: 400px;
+  text-align: left;
+  cursor: pointer;
+  color: #fff;
+  border-top-right-radius: 30px;
+  user-select: none;
+  font-size: 18px;
+  position: fixed;
+  bottom: 0;
+  right: 30px;
+  z-index: 2;
+}
+.footer-text {
+  display: inline;
+}
+.footer-icon {
+  display: none;
+}
+@media (max-width: 768px) {
+  .footer {
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+    padding: 0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: 20px;
+  }
+  .footer-text {
+    display: none;
+  }
+  .footer-icon {
+    display: block;
+    font-size: 24px;
+    color: white;
   }
 }

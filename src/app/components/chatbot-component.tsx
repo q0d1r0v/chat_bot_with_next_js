@@ -2,7 +2,7 @@
 import { useState, useEffect, useRef } from "react";
 import { IoIosCloseCircleOutline } from "react-icons/io";
 import { FaArrowUp } from "react-icons/fa";
-import { CiUser } from "react-icons/ci";
+import { CiChat2, CiUser } from "react-icons/ci";
 import { RiRobot2Line } from "react-icons/ri";
 import { MdOutlineCleaningServices } from "react-icons/md";
 import { v4 as uuidv4 } from "uuid";
@@ -142,7 +142,6 @@ export default function ChatBot() {
           thread_id: userId,
         }),
       });
-
       if (response.body && response.body.getReader) {
         const reader = response.body.getReader();
         const decoder = new TextDecoder();
@@ -372,7 +371,10 @@ export default function ChatBot() {
         </div>
       ) : (
         <div className="footer" onClick={toggleVisibility}>
-          Bizga murojaat qiling!
+          <span className="footer-text">Bizga murojaat qiling!</span>
+          <span className="footer-icon">
+            <CiChat2 />
+          </span>
         </div>
       )}
     </div>
